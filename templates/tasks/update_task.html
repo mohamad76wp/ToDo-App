@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Task</title>
+    <!-- Include Bootstrap CSS from a CDN -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+</head>
+
+<body>
+    <div class="container mt-5">
+        <a class="icon-link icon-link-hover" href="/">
+            <svg class="bi" aria-hidden="true"><use xlink:href="#arrow-left"></use></svg>
+            Home Page
+          </a>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <label class="form-label">Update Task </label>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="formTitle">Title</label>
+                        {{ form.title }}
+                    </div>
+                    <div class="form-check">
+                        
+                        {{ form.complete }}
+                        <label class="form-check-label" for="formComplete">Complete</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-3"></div>
+    <!-- Include Bootstrap JavaScript (optional) -->
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
